@@ -1,0 +1,34 @@
+//static 메서드에서는 this 키워드 사용불가
+//static 메서드는 오직 static멤버만 접근가능
+public class CaculateYMD{
+
+    static class YMD {
+        int y;
+        int m;
+        int d;
+        
+        YMD(int year, int month, int day) {
+            this.y = year;
+            this.m = month;
+            this.d = day;
+        }
+        // this.d를 두 메서드가 공유 
+        // 따라서 변경된 값을 저장하지 않음
+        int YMDafter(int n) {
+            // this.d +=  n;   
+            return this.d+n;
+        }
+        
+        int YMDbefore(int n) {
+            
+            return this.d-n;
+        }
+    }
+    
+     public static void main(String []args){
+        
+        YMD test = new YMD(2019,12,25);
+        
+        System.out.printf("오늘로 부터 3일 후 %d :\n 오늘로 부터 4일 전 : %d",test.YMDafter(3),test.YMDbefore(4));
+     } 
+}
