@@ -1,0 +1,80 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class PhyscExam
+{
+	static final int VMAX = 21;
+	
+	static class PhyscData {
+		String name;
+		int height;
+		double vision;
+	
+		// 생성자
+		PhyscData(String name, int height, double vision) {
+			this.name = name;
+			this.height = height;
+			this.vision = vision;
+		}
+	}
+  // 평균 키
+	static double aveHeight(PhyscData[] dat) {
+		double sum = 0;
+		
+		for (int i = 0; i < dat.length; i++) {
+			sum += dat[i].height;
+		}
+		return sum/dat.length;
+	}
+	// 시력 분포
+	static void distVision(PhyscData[] dat, int[] dist) {
+		int i = 0;
+		
+		dist[i] = 0;// 명 수 
+		for(i = 0; i<dat.length; i++) {
+			if (dat[i].vision >= 0.0 && dat[i].vision <= 2.1) { //알맞은 값인지 판단
+				dist[(int)(dat[i].vision * 10)]++;
+			}
+		}
+	}
+	// 시력 분포를 별로 출력
+	static void printStar(int[] vdist ,int j) {
+	    for (int i = 0; i < vdist[j]; i++) {
+	        System.out.print("*");
+	    }
+	   
+	}
+  // 메인
+	public static void main (String[] args)
+	{
+		Scanner stdln = new Scanner(System.in);
+		
+		PhyscData[] x = {
+			new PhyscData("박현규1",162, 0.3),
+			new PhyscData("박현규2",180, 0.2),
+			new PhyscData("박현규3",173, 0.1),
+			new PhyscData("박현규4",167, 1.5),
+			new PhyscData("박현규5",152, 2.0),
+			new PhyscData("박현규6",172, 1.5),
+		};
+    
+		//시력 분포에 이용할 배열
+		int[] vdist = new int[VMAX];
+		
+		System.out.println("이름   키   시력");
+		for(int i = 0; i < x.length; i++) {
+			System.out.println(x[i].name +" "+ x[i].height +" "+ x[i].vision);
+		}
+		System.out.printf("평균키 : %5.1f",aveHeight(x));
+		
+		distVision(x, vdist);
+		
+		System.out.println("시력 분포");
+		for (int i = 0; i < VMAX; i++) {
+		    System.out.printf("%5.1f :",i/10.0);
+		    printStar(vdist,i);
+			System.out.printf("\n");
+		}
+	}
+}
