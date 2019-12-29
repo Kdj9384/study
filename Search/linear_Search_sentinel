@@ -1,0 +1,33 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class SeqSearch
+{
+	static int seqSearch(int[] a, int n, int key) {
+		int i = 0;
+		for (; i<a.length;i++) {
+			if (a[i] == key)
+				break;
+			// 보초법 덕분에 종료조건 판단 횟수가 줄음 
+			//if (i == n) 마지막 까지 일치하지않으면 -1을 반환 
+			//	return -1;
+		}
+		return i;
+	}
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner stdln = new Scanner(System.in);
+		int num = 6;               // 배열의 길이
+		int[] ax = new int[num+1]; // 보초 추가 
+		
+		ax = new int[]{12,111,12315,23,-11,32};
+		
+		System.out.println("검색할 값 입력;");
+		int key = stdln.nextInt();
+		
+		int index = seqSearch(ax, ax.length, key);
+		System.out.println("그 값의 인덱스는 "+((index == num+1) ? "없습니" : index)+"다.");
+		// num+1 은 보초의 index값
+	}
+}
