@@ -1,0 +1,52 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Ideone
+{
+	static int seqSearch(int[] arr, int key) {
+    int i = 0;
+    
+    // 배열 출력(1번만)
+  	System.out.print("  |");
+		for(int ii = 0; ii < arr.length; ii++) {
+			System.out.printf("%2d",ii);	
+		}
+		System.out.println("\n--------------------------");
+		
+		for(; i < arr.length; i++) {
+			// 위치 출력(별)
+			System.out.print("  |");
+			for(int k = 0; k < i; k++) {
+				System.out.print("  ");
+			}
+			System.out.print(" *\n");
+      
+			// 배열 출력
+			System.out.printf("%2d|",i);
+			for(int j : arr) {
+				System.out.printf("%2d",j);
+			}
+			System.out.print("\n");
+      
+			// 판단 
+			if (arr[i] == key) {
+				System.out.printf("%d는 인덱스 %d에 있습니다.",key,i);
+				return i;				
+			}
+		}
+    // 찾지 못했을 경우
+		return -1;
+	}
+	
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner stdln = new Scanner(System.in);
+		int[] arr = new int[]{6,4,3,2,1,9,8,0,7};
+		
+		int key = stdln.nextInt();
+		int result = seqSearch(arr, key);
+		if (result == -1)
+			System.out.println("일치하는 값이 없습니다.");
+	}
+}
