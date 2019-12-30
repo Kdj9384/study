@@ -2,7 +2,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Ideone
+class SeqSearch_Print
 {
 	static int seqSearch(int[] arr, int key) {
     int i = 0;
