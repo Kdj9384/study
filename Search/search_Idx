@@ -1,0 +1,21 @@
+public class SearchIndx{
+
+    public static int searchInx(int[] a, int n, int key, int[] idx) {
+        int j = 0;
+        for(int i = 0; i < a.length; i++) {
+            if(a[i] == key)
+                idx[j++] = i;
+        }
+        return j; // j++ 때문에 1더해줄 필요 없음
+    }
+    
+     public static void main(String []args){
+        int[] a = {1,9,2,9,4,6,7,9};
+        int key = 9;
+        int[] idx = new int[a.length];
+        
+        int found = searchInx(a, a.length,key,idx);
+        System.out.println("일치하는 요소수는"+found);
+        
+     }
+}
