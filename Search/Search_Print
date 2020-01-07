@@ -1,0 +1,59 @@
+public class SearchPrint{
+
+    public static void searchPrint(int[] a, int key) {
+        int pl = 0;
+        int pr = a.length-1;
+        int counter = 0;
+        
+        System.out.print("  |");
+        for (int i = 0; i < a.length; i++) {
+            System.out.printf("%2d",a[i]);
+        }
+        System.out.println();
+        
+        System.out.print("--+");
+        for (int i = 0; i < a.length; i++) {
+            System.out.print("--");
+        }
+        System.out.println();
+        
+    
+        for (;  true  ; counter++) {
+            int pc = (pl + pr)/2;
+            
+            System.out.print("  |");
+            for (int j =0; j < a.length; j++) {
+                if (j == pl)
+                    System.out.print("<-");
+                if (j == pc)
+                    System.out.print("+");
+                if (j == pr)
+                    System.out.print("->");
+            }
+            System.out.println();
+            
+            System.out.print(" "+pc+"|");
+            for (int i = 0; i < a.length; i++) {
+                System.out.printf("%2d",a[i]);
+            }
+            System.out.println();
+                
+            
+            
+            if (a[pc] == key) {
+                System.out.println("찾는 값은"+pc+"에 잇다.");
+                break;
+            }
+            if (pl >= pr)
+                System.out.println("값이 없습니ㅏㄷ.");
+                break;
+        }
+        
+    }
+     public static void main(String []args){
+        int[] a = {0,1,2,3,4,5,6};
+        int key = 4;
+        
+        searchPrint(a, key);
+    }
+}
