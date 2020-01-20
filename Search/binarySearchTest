@@ -1,0 +1,30 @@
+// Arrays.binarySearch(배열, 키값) 테스트
+// 성공시 일치하는 인덱스를 반환
+// 실패시 삽입포인트를 x라 할때 -x-1을 반환(무조건 음수)
+// 삽입포인트란 키값보다 큰 요소중에 제일 작은 요소를 말함
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class binarySearchTest
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int[] a = {1,4,7,9,44,77,87,846,4567};
+		int key = 78;
+		int result = Arrays.binarySearch(a,key);
+		
+		if (result < 0) {
+			System.out.println("없습니다.");
+			for(int i = 0; i < a.length; i++) {
+				if (a[i] > key) {
+					System.out.println("삽입 포인트는"+i);
+					break;
+				}
+			}
+		}else {
+			System.out.println("찾는 요소는 "+result+"에있다,.");
+		}
+	}
+}
