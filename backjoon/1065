@@ -34,21 +34,20 @@ class Test
 	{
 		Scanner stdln = new Scanner(System.in);
 		int n = 0;
-//		boolean isNumber = false;
-//		
-//		do {
-//			System.out.println("1000이하의 자연수를 입력해주세요");
-//			String input = stdln.nextLine();
-//			try {
-//				n = Integer.parseInt(input);
-//				isNumber = true;
-//			} catch (NumberFormatException e) {
-//				
-//			}
-//			
-//		}while( (isNumber == false) || n<1 || n>1000);
-//		
-		n = stdln.nextInt();
+		boolean isNumber = false;
+		
+		do {
+			System.out.println("1000이하의 자연수를 입력해주세요");
+			String input = stdln.nextLine();
+			try {
+				n = Integer.parseInt(input);
+				isNumber = true;
+			} catch (NumberFormatException e) {
+				
+			}
+			
+		}while( (isNumber == false) || n<1 || n>1000);
+				
         hanSoo(n);
 	}
 }
