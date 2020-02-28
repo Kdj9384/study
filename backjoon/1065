@@ -1,0 +1,54 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Test
+{
+	public static void hanSoo(int n){
+		int cnt = 99;
+		
+		if ( n < 100) {
+			System.out.println(n);
+		}
+		else {
+			int[] a = new int[3];
+			
+			for(int i = 100; i <= n; i++) {
+				a[0] = i/100;
+				a[1] = (i/10)%10;
+				a[2] = (i%100)%10;
+				
+				if (a[1]-a[0] == a[2]-a[1]) {
+					cnt += 1;
+				}
+				
+				a[0] = 0;
+				a[1] = 0;
+				a[2] = 0;				
+			}
+			System.out.println(cnt);
+		}
+	}
+
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner stdln = new Scanner(System.in);
+		int n = 0;
+//		boolean isNumber = false;
+//		
+//		do {
+//			System.out.println("1000이하의 자연수를 입력해주세요");
+//			String input = stdln.nextLine();
+//			try {
+//				n = Integer.parseInt(input);
+//				isNumber = true;
+//			} catch (NumberFormatException e) {
+//				
+//			}
+//			
+//		}while( (isNumber == false) || n<1 || n>1000);
+//		
+		n = stdln.nextInt();
+        hanSoo(n);
+	}
+}
