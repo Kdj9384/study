@@ -1,3 +1,6 @@
+// 각자리가 등차수열인 한수를 찾는 문제
+// runtime error
+
 import java.util.*;
 import java.lang.*;
 import java.io.*;
