@@ -1,10 +1,4 @@
-// 1에서 10000 까지 각각의 수를 생성자로 인식해
-// 각각의 수의 d(n)을 구한다.
-// 1에서 10000 까지 나온 d(n)이 없는 수를 출력한다.
-
 import java.util.*;
-import java.lang.*;
-import java.io.*;
 
 class Ideone
 {
@@ -16,12 +10,12 @@ class Ideone
 		}
 		return ans;
 	}
-	public static void main (String[] args) throws java.lang.Exception
+	public static void main (String[] args)
 	{
 		boolean[] a = new boolean[10001];
 		for(int i = 1; i <= 10000; i++) {
 			int ddn = dn(i);
-			if (ddn <= 10000)
+			if (ddn <= 10000) //배열범위 초과를 막아줌
 				a[ddn] = true;
 		}
 		
