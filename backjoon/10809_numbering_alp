@@ -1,0 +1,27 @@
+// 주어진 단어의 알파벳이 처음 나오는 위치를 찾는다.
+import java.util.*;
+
+class Main {
+  public static void main(String[] args) {
+	Scanner stdln = new Scanner(System.in);
+    String word = stdln.next();
+    char[] word_arr = word.toCharArray(); // 입력된 단어
+    int[] alp = new int[26];			// 알파벳이 들어있는 배열
+    
+    //배열 초기화
+    for(int i = 0; i < alp.length; i++) {
+      alp[i] = -1;
+    }
+    // 아스키 코드를 이용해 배열에 대입
+    for(int i = 0; i < word_arr.length; i++) {
+      //알파뱃이 처음입력된 위치를 저장해야하기 때문
+      if (alp[word_arr[i] - 'a'] == -1) 
+      	alp[word_arr[i] - 'a'] = i;
+    }
+    // 출력
+    for(int i = 0; i < alp.length; i++) {
+      System.out.print(alp[i]+" ");
+    }
+    
+  }
+}
