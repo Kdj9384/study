@@ -1,0 +1,21 @@
+import java.util.*;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner stdln = new Scanner(System.in);
+    
+    int result = 0;
+    int a1 = stdln.nextInt();
+    stdln.nextLine();
+    String a2 = stdln.nextLine();
+    char[] aa1 = new char[a1+1];
+    
+    aa1 = a2.toCharArray();
+    
+    for(int i = 0; i < aa1.length; i++) {
+      result += Character.getNumericValue(aa1[i]); // char를 있는 그대로 int로 변환, ASCII x
+    }
+    
+    System.out.println(result);
+  }
+}
