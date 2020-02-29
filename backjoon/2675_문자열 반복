@@ -1,0 +1,27 @@
+import java.util.*;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner stdln = new Scanner(System.in);
+   
+    int test = stdln.nextInt();
+    
+    // 테스트 케이스를 하나씩 반복문을 통해 처리
+    for(;test > 0; test--) {
+      int r = stdln.nextInt();                  // 반복 횟수
+      String s = stdln.next();                  // 원본 스트링
+      char[] ss = s.toCharArray();              // 원본 char 배열
+      char[] result = new char[ss.length * r];  // 결과 char배열
+      
+      // 계산 및 출력
+      for(int i = 0; i < ss.length; i++) {
+      	for (int j = 0; j < r; j++) {
+          result[j] = ss[i];
+          System.out.print(result[j]);
+        }
+      }
+      // 개행
+      System.out.println();
+    }
+  }
+}
