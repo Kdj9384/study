@@ -1,0 +1,25 @@
+import java.util.*;
+
+class Main {
+  public static void main(String[] args) {
+    
+    Scanner stdln = new Scanner(System.in);
+    double A = stdln.nextDouble(); // 고정
+    double B = stdln.nextDouble(); // 대당 생산비용
+    double C = stdln.nextDouble(); // 대당 가격
+    // 내가 푼 답
+    if ( B >= C) {
+      System.out.println(-1);
+    } else {
+      int result = (int)(A/(C-B)) + 1;
+      System.out.println(result);
+    }
+    // ** 다른 사람의 답 **
+    if ( B - C > 0)
+      System.out.println((int)(A/(C-B)) + 1);
+    else
+      System.out.println(-1);
+    
+    
+  }
+}
