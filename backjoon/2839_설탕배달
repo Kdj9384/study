@@ -1,0 +1,44 @@
+// 3 <= N <= 5000
+// 5와 3으로 구성되지 못하면 -1 리턴
+// 5와 3으로 구성될수 있으면 5의 크기가 가장 크게하는 5의 갯수와 3의 갯수 출력
+import java.util.*;
+
+class Main {
+  public static void main(String[] args) {
+    
+    Scanner stdln = new Scanner(System.in);
+    int N = stdln.nextInt();
+    int max = 0;
+    int empty = 0;
+    // 5와 3을 저장하기 위한 2중배열
+    int[][] a = new int[2][N/3+1];
+    
+    for(int i = 0 ; 5*i <= N; i++) {
+      for (int j = 0; 5*i+3*j <= N; j++) {
+      // 5와 3으로 이뤄질수 있으면 그 수를 저장
+        if(N - 5*i - 3*j == 0) {
+          a[0][i] = i;
+          a[1][i] = j;
+        }
+      }
+    }
+    // 5가 가장 큰 경우 찾기
+    for ( int i = 0; i < a[0].length; i++) {
+      if(a[0][i] >= max) {
+        max = a[0][i];
+      }
+      // 5와 3으로 이뤄질 수 없는 수 
+      if(a[0][i] == 0 && a[1][i] == 0) {
+        empty += 1;
+      }
+    }
+    
+    if ( empty == a[0].length) 
+      System.out.println(-1);
+    else
+      System.out.println(a[0][max] + a[1][max]);
+    
+   
+    
+  }
+}
