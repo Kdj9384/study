@@ -1,0 +1,38 @@
+// 대칭을 이용
+import java.util.*;
+
+class Main {
+  public static void main(String[] args) {
+
+    Scanner stdln = new Scanner(System.in);
+    
+    int T = stdln.nextInt();
+    
+    for(;T > 0; T--) {
+      long X = stdln.nextInt();
+      long Y = stdln.nextInt();
+      long N = Y - X;
+      long k_sum = 0;
+      // 갯수만 구하면 되기 때문에
+      for(long i = 1; i <= N; i++) {
+        k_sum += i;
+        if (2 * k_sum - N < 0) {
+          continue;
+        } else {
+          if (2 * k_sum - N < i) {
+            // 2 * k_sum - N == 0 일때 -- > 완전 대칭
+            // 2 * k_sum - N 이 1 ~ i-1일 때까지는 변동없음
+            System.out.println(i*2);
+          	break;            
+          }else {
+            // 차이가 i일때 부터 횟수의 최솟값을 구해야 하기 때문에
+            // i를 빼고 수열을 구성
+            System.out.println(i*2-1);
+            break;
+          }
+        }
+      }
+      
+    }
+  }
+}
