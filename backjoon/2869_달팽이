@@ -1,7 +1,9 @@
+// 반복문 사용 불가
+// 속도 향상을 위해 Scanner 대신 BufferedReader사용
 import java.io.*;
 import java.util.*;
 
-class Main2 {
+class Main {
   public static void main(String[] args) {
     try {
       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -12,25 +14,16 @@ class Main2 {
       int B = Integer.parseInt(st.nextToken());
       int V = Integer.parseInt(st.nextToken());
       
-      int hight = 0;
-      int cnt = 0;
-
-      while (true) 
-      {
-        hight += A;
-        if (hight >= V) {
-          cnt += 1;
-          break;
-        } else {
-          cnt+=1;
-        }
-
-        hight -= B;
-      }
-
-      System.out.println(cnt);
-
+      // 걸린 일 수를 X라 했을 때 A(X-1) - B(X-1) + A > V 가 성립해야한다.
+      // 정리하면 X > (V-B)/(A-B)
+      int cnt = (V-B)%(A-B);
       
+      // 나눈 나머지에 따라 값이 달라진다.
+      if(cnt == 0)
+        System.out.println((V-B)/(A-B));
+      else
+        System.out.println((V-B)/(A-B)+1);
+     
     } catch (IOException e) {
       
     }
