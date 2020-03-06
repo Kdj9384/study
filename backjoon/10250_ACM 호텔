@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+
+class Main {
+  public static void main(String[] args) {
+    
+    Scanner stdln = new Scanner(System.in);
+    // T = test횟수
+    int T = stdln.nextInt();
+    
+    for(;T > 0;T--) {
+      // 1 <= H, W <= 99
+      // 1 <= N <= N*H;
+      int H = stdln.nextInt(); // 층수
+      int W = stdln.nextInt(); // 방수
+      int N = stdln.nextInt(); // N번째 사람
+      int w = 0;
+      int h = 0;
+      
+      // w,h 구하기  
+      if ( N%H == 0) {
+        h = H;
+        w = N/H;        
+      }else {
+        h = N%H;
+        w = N/H + 1;        
+      }
+
+      String s_h = String.valueOf(h);
+      String s_w = String.valueOf(w);
+      
+      if(s_w.length() > 1)
+      	System.out.println(s_h + s_w);
+      else
+        System.out.println(s_h +"0"+s_w);
+        
+    }
+  }
+}
