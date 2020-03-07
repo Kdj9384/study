@@ -1,0 +1,33 @@
+// 피라미드처럼 보기 *
+import java.util.*;
+
+class Main {
+  public static void main(String[] args) {
+    
+    Scanner stdln = new Scanner(System.in);
+    
+    int X = stdln.nextInt();
+    int i = 1; // 몇번째 열인지
+    int sum = 0; // 각 열의 개수의 합
+    
+    while(true) {
+      sum += i;
+      if (X <= sum) {
+        //i가 짝수냐 홀수냐에 따라 세는 방향이 달라짐
+        // 짝수의 경우 i-G/i+G (G = sum-X)
+        if (i%2 == 0) {
+          System.out.println(i-(sum-X)+"/"+(1+(sum-X)));
+          break;
+        } else {
+          // 홀수의 경우 1+G/i-G
+          System.out.println(1+(sum-X)+"/"+(i-(sum-X)));
+          break;
+        }
+      } else {
+        i++;
+      }
+      
+    }
+    
+  }
+}
