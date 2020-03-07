@@ -1,0 +1,28 @@
+// 주어진 N이 어느 줄에 속해있는지 알아야한다.
+// n번째 써클에 있는 수 = 지나는 방의 수 n
+
+import java.util.*;
+
+class Main {
+
+  public static void main(String[] args) {
+    Scanner stdln = new Scanner(System.in);
+    // 주어진 숫자
+    int N = stdln.nextInt();
+    int room_num = 1;
+    int i = 1;
+    
+    while(true) {
+      // roon_num이 N보다 같거나 클때
+      if (N <= room_num) {
+        System.out.println(i);
+        break;
+      // room_num이 N보다 작을때
+      } else {
+        room_num += 6 * i; 
+      }
+      i++;
+    }
+
+  }
+}
