@@ -1,0 +1,47 @@
+import java.util.*;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner stdln = new Scanner(System.in);
+    
+    int N = stdln.nextInt(); // 단어개수
+    int[] alp = new int[26]; // 단어의 인덱스를 저장, 0 -> 'a'
+    Arrays.fill(alp, -1); // 배열을 -1로 초기화
+    int cnt = 0; // 그룹단어의 개수
+    boolean chk = false; // 그룹단어인지 판단
+    
+    
+    for(;N > 0;N--) {
+      
+      String word = stdln.next();
+      char[] cword = word.toCharArray();
+      
+      for(int i = 0; i < cword.length; i++) {
+        // 처음인지 확인
+        if( alp[cword[i]-'a'] == -1)
+          alp[cword[i]-'a'] = i;
+        else {
+          // 연속될 때
+          if (i - alp[cword[i]-'a'] <= 1) {
+            alp[cword[i]-'a'] = i;
+          } else {
+            // 연속되지 않을 때
+            chk = true;
+            break;
+          }
+        }
+      }
+
+      if(!chk)
+        cnt+=1;
+        
+      // chk, alp[] 다시 초기화
+      chk = false;
+      Arrays.fill(alp, -1);
+      
+    }
+    System.out.println(cnt);
+    
+    
+  }
+}
