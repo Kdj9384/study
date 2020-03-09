@@ -1,0 +1,35 @@
+// 1~N까지 boolean 배열생성
+// 합성수면 true 소수면 false
+// M ~ N 까지 출력
+// ++ 초기에 1 ~ N까지가아닌 M ~ N까지의 배열을 만들면 더 빨라진다.
+import java.util.*;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner stdln = new Scanner(System.in);
+    
+    int M=stdln.nextInt();
+    int N=stdln.nextInt();
+    int root_n = (int)Math.sqrt(N);
+	boolean[] b = new boolean[N+1];
+    
+    // 합성수면 true; 소수면 false;
+    b[0] = true;
+    b[1] = true;
+    for(int i = 2; i <= root_n; i++) {
+      if(b[i])
+        continue;
+      else {
+        for(int j = 2; i*j <= N; j++) {
+          b[i*j] = true;
+        }
+      }
+    }
+    
+    for(int i = M; i<= N; i++) {
+      if(!b[i])
+        System.out.println(i);
+    }
+
+  }
+}
