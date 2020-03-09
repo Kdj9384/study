@@ -1,0 +1,34 @@
+// 재귀로 풀기
+import java.util.*;
+import java.io.*;
+
+class Main {
+  public static int tail_factorial(int N, int stack){
+    if(N==0)
+      return 1;
+    if (N == 1)
+      return stack;
+    return tail_factorial(N-1,stack*(N-1));
+  }
+  
+  public static int factorial(int N) {
+    if(N==0)
+      return 1;
+    if(N == 1)
+      return 1;
+    return N*factorial(N-1);
+  }
+  
+  public static void main(String[] args) {
+    try{
+      BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+      int n = Integer.parseInt(br.readLine());
+      System.out.println(factorial(n));
+      
+    } catch (IOException e) {
+      
+    }
+      
+
+  }
+}
