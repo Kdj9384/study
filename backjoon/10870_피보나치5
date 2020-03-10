@@ -1,0 +1,34 @@
+import java.util.*;
+
+class Main {
+  public static int fibo(int n){
+    if(n == 0)
+      return 0;
+    if(n == 1)
+      return 1;
+    return fibo(n-1)+fibo(n-2);
+  }
+  // n은 반복문의 i같은 존재
+  // 비포 에프터 0, 1 초기값을 주면서 걍 수열대로 더함
+  // 비포에 에프터, 에프터에 비포 + 에프터
+  // 즉 에프터에 스택
+  public static int tail_fibo(int n, int before, int after){
+    if(n == 0)
+      return 0;
+    // 횟수를 다 돌았으니 결과값 에프터 리턴
+    if(n == 1)
+      return after;
+    
+    return tail_fibo(n-1, after, before + after );
+  }
+  public static void main(String[] args) {
+    Scanner stdln = new Scanner(System.in);
+    
+    int n = stdln.nextInt();
+    // 0 <= n <= 20
+    
+    System.out.println(fibo(n));
+    //System.out.println(tail_fibo(n,0,1));
+    
+  }
+}
