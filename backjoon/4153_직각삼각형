@@ -1,0 +1,29 @@
+// 직각삼각형이 맞는지 검사
+import java.util.*;
+
+class Main3 {
+  public static void main(String[] args) {
+    Scanner stdln = new Scanner(System.in);
+    int[] a = new int[3];
+    
+    while(true) {
+      
+      a[0] = stdln.nextInt();
+      a[1] = stdln.nextInt();
+      a[2] = stdln.nextInt();
+      
+      // 종료조건
+      if(a[0]+a[1]+a[2] == 0)
+        break;
+      
+      Arrays.sort(a);
+      
+      if(a[2]*a[2] == a[0]*a[0] + a[1]*a[1])
+        System.out.println("right");
+      else
+        System.out.println("wrong");
+      
+    }
+    
+  }
+}
