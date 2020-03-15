@@ -18,7 +18,7 @@ class Main {
       int w = 0;
       int h = 0;
       
-      // w,h 구하기  
+      //  w,h 구하기  
       if ( N%H == 0) {
         h = H;
         w = N/H;        
