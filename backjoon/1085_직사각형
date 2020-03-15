@@ -1,0 +1,23 @@
+import java.util.*;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner stdln = new Scanner(System.in);
+    int x = stdln.nextInt();
+    int y = stdln.nextInt();
+    int w = stdln.nextInt();
+    int h = stdln.nextInt();
+    
+    // x는 0과 w 중 가까운ㅅ것
+    // y도 마찬가지
+    // 후에 둘을 비교
+    
+    int x_rate = x>w-x ? w-x:x;
+    int y_rate = y>h-y ? h-y:y;
+    
+    if(x_rate > y_rate)
+      System.out.println(y_rate);
+    else
+      System.out.println(x_rate);
+  }
+}
