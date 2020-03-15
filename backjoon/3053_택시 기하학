@@ -1,0 +1,17 @@
+// 택시 기하학
+import java.util.*;
+import java.lang.*;
+
+class Main3 {
+  public static void main(String[] args) {
+    Scanner stdln = new Scanner(System.in);
+    
+    double r = stdln.nextDouble();
+    
+    // 파이*r^2 (유클리드 기하학에서의 원의 넓이)
+    System.out.print(String.format("%.6f\n",r*r*Math.PI));
+    // 2r^2 (택시 기하학에서의 원의 넓이)
+    System.out.print(String.format("%.6f",2*r*r));
+    
+  }
+}
