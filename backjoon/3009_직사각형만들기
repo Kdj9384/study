@@ -1,0 +1,38 @@
+//3점을 주었을때 직사각형 만들기
+import java.util.*;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner stdln = new Scanner(System.in);
+    
+    int x1 = stdln.nextInt();
+    int x2 = stdln.nextInt();
+    int y1 = stdln.nextInt();
+    int y2 = stdln.nextInt();
+    int z1 = stdln.nextInt();
+    int z2 = stdln.nextInt();
+    
+    int[][] x_y = {{x1,y1,z1},{x2,y2,z2}};
+    
+    int[] rest_xy = {0,0};
+    
+    for(int i = 0; i <2; i++) {
+      if(x_y[i][0] == x_y[i][1])
+        rest_xy[i] = x_y[i][2];
+      else {
+        if(x_y[i][0] == x_y[i][2])
+          rest_xy[i]=x_y[i][1];
+        else
+          rest_xy[i]=x_y[i][0];
+      }      
+    }
+    
+	System.out.println(rest_xy[0]+" "+rest_xy[1]);
+      
+    
+    
+    
+ 
+    
+  }
+}
