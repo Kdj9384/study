@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Hellojava {
+
+	public static void main(String[] args) {
+		Scanner stdln = new Scanner(System.in);
+		int T = stdln.nextInt();
+
+		while (T > 0) {
+			
+			double x1 = stdln.nextDouble();
+			double y1 = stdln.nextDouble();
+			double r1 = stdln.nextDouble();
+			double x2 = stdln.nextDouble();
+			double y2 = stdln.nextDouble();
+			double r2 = stdln.nextDouble();
+
+			double R = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
+			R = Math.sqrt(R); // 두 점 사이의 거리
+
+			if (R == 0 && r1 == r2)
+				System.out.println(-1);
+			else if (R > r1 + r2 || R < Math.abs(r2 - r1))
+				System.out.println(0);
+			else if (R == r1 + r2 || R == Math.abs(r2 - r1))
+				System.out.println(1);
+			else
+				System.out.println(2);
+			
+			T--;
+
+			
+		}
+		stdln.close();
+	}
+
+}
